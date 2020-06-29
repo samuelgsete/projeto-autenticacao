@@ -1,0 +1,84 @@
+<div class="create">
+    <div class="progress-bar" *ngIf="false">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div class="about">
+        <img src="/assets/img/avatar/computer.png" alt="usuario" width="80px" height="80px">
+        <h1>Crie suas credenciais</h1>
+        <p><mdb-icon fas icon="quote-left"></mdb-icon> Esse sistema irá monitorar o seu comportamento a cada vez que uma autenticação for realizada, seu registro será exbido ao administrador em sua área exclusiva. Caso ja tenha criado uma conta clique no botão abaixo para ser direcionado à tela de login <mdb-icon fas icon="quote-right"></mdb-icon> </p>
+        <button mdbBtn type="button" color="indigo" outline="true" (click)="toLogin()" mdbWavesEffect>JA ESTOU CADASTRADO</button> 
+    </div>
+    <div class="main z-depth-2">
+        <div class="header">
+            <img src="/assets/img/avatar/avatar-new-user.png" alt="usuario" width="80px" height="80px">
+            <h6>Crie sua conta gratuita</h6>
+            <p>Informe seus dados</p>
+        </div>
+        <div class="body">
+            <form [formGroup]="form">
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="input-width" appearance="outline">
+                            <mat-label>Nome</mat-label>
+                            <input formControlName="name" matInput required>
+                            <mat-icon matSuffix>face</mat-icon>
+                            <mat-error>preencha o nome corretamente</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <mat-form-field class="input-width" appearance="outline">
+                            <mat-label>Sobrenome</mat-label>
+                            <input formControlName="surname" matInput required>
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <mat-error>preencha o sobrenome corretamente</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="input-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput required>
+                            <mat-icon matSuffix>email</mat-icon>
+                            <mat-error>preencha o email corretamente</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="input-width" appearance="outline">
+                            <mat-label>Whatzapp</mat-label>
+                            <input formControlName="whatzapp" matInput required mask="(00) 00000-0000">
+                            <mat-icon matSuffix>phone</mat-icon>
+                            <mat-error>Preencha essa capo corretamente, ex: (00) 00000-000</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="input-width" appearance="outline">
+                            <mat-label>Login</mat-label>
+                            <input formControlName="username" matInput required>
+                            <mat-icon matSuffix>security</mat-icon>
+                            <mat-error>preencha o nome corretamente</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <mat-form-field class="input-width" appearance="outline">
+                            <mat-label>Senha</mat-label>
+                            <input formControlName="password" type="password" matInput required>
+                            <mat-icon matSuffix>https</mat-icon>
+                            <mat-error>preencha o sobrenome corretamente</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-checkbox>Aceito os termos de uso</mat-checkbox>
+                <button mdbBtn type="button" block="true" color="indigo" [disabled]="!form.valid" (click)="createUser()" mdbWavesEffect>CRIAR CONTA</button>
+            </form> 
+        </div>
+        <div class="footer">
+            <hr>
+            <p>© 2020 Todos os direitos autorais estão reservados</p>
+        </div>
+    </div>
+</div>
