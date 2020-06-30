@@ -22,4 +22,12 @@ export class UserService {
     public resendCode(email: string): Observable<any> {
         return this.http.put(this.urlBase.concat(`/resend`), { email });
     }
+
+    public recoverAccount(email: string): Observable<any> {
+        return this.http.put(this.urlBase.concat(`/recover/account`), { email });
+    }
+
+    public finalizeRecover(password: string, code: string): Observable<any> {
+        return this.http.put(this.urlBase.concat(`/finalize/recover`), { password, code });
+    }
 }

@@ -6,7 +6,7 @@
         <img src="/assets/img/avatar/note.png" alt="usuario" width="80px" height="80px">
         <h1>Quase tudo pronto</h1>
         <p><mdb-icon fas icon="quote-left"></mdb-icon> Muito bem, se acesso está bem perto de ser restabelecido. Lembre de fornecer uma senha fácil de ser lembrada por você. Caso não tenha recebido o código de verificação clique no botão abaixo para solicitar o reenvio <mdb-icon fas icon="quote-right"></mdb-icon></p>
-        <button mdbBtn type="button" color="indigo" outline="true" mdbWavesEffect>REENVIAR CÓDIGO</button> 
+        <button mdbBtn type="button" color="indigo" outline="true" (click)="resendCode()" mdbWavesEffect>REENVIAR CÓDIGO</button> 
     </div>
     <div class="main z-depth-2">
         <div class="header">
@@ -32,7 +32,7 @@
                     <mat-icon matSuffix>https</mat-icon>
                     <mat-error>Por favor insira o senha corretamente</mat-error>
                 </mat-form-field>
-                <button class="z-depth-0" mdbBtn type="button" block="true" color="indigo" [disabled]="!form.valid" (click)="updateUser()" mdbWavesEffect>ATUALIZAR DADOS</button>
+                <button class="z-depth-0" mdbBtn type="button" block="true" color="indigo" [disabled]="!form.valid" (click)="updateUser(form.value)" mdbWavesEffect>ATUALIZAR DADOS</button>
             </form>
         </div>
         <div class="footer">

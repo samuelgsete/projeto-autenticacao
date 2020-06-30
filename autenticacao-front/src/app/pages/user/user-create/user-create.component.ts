@@ -44,22 +44,22 @@ export class UserCreateComponent implements OnInit {
     localStorage.setItem('email', user.email);
     
     this.service.create(user).subscribe( response => {
-      this.loading = false;
       this.router.navigateByUrl('/confirm/account');
     },
     erro => {
-      this.loading = false;
+      localStorage.removeItem('email');
+      localStorage.removeItem('name');
       this.errorMessage(erro);
+    }).add( () => {
+      this.loading = false;
     });
   }
 
   private errorMessage(response: any) {
     const error = response.error;
-    console.log(error);
     if(response.status == 0) {
       this.toastr.error('Servidor Inacessível', 'ERRO', { progressBar: true, positionClass: 'toast-bottom-center' });
     }
-
     else {
       this.toastr.error(error.message, 'ERRO', { progressBar: true, positionClass: 'toast-bottom-center' });
     }
