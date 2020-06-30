@@ -8,6 +8,8 @@ import { ConfirmAccountComponent } from './user-create/confirm-account/confirm-a
 import { RecoverAccountComponent } from './recover-account/recover-account.component';
 import { ConfirmRecoverComponent } from './recover-account/confirm-recover/confirm-recover.component';
 
+import { UserService } from 'src/app/shared/services/user.service';
+
 @NgModule({
   declarations: [
     UserLoginComponent,
@@ -20,6 +22,6 @@ import { ConfirmRecoverComponent } from './recover-account/confirm-recover/confi
     CommonModule,
     SharedModule
   ],
-  exports: []
+  providers: [UserService]
 })
 export class UserModule { }

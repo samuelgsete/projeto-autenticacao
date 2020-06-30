@@ -21,7 +21,7 @@
                     Olá {{ name }}
                     um código de verificação foi enviado para 
                     o seu email, insirá-o para confirmar seu cadastro. Caso for necessário
-                    click <span class="link">aqui</span> para reenviar o código. Atenção, seu cadastro só será confirmado
+                    click <span class="link" (click)="resendCode()">aqui</span> para reenviar o código. Atenção, seu cadastro só será confirmado
                     se o código estiver correto.
                 </p>
                 <mat-form-field class="input-width" appearance="outline">

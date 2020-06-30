@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -18,6 +20,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
+    ToastrModule.forRoot(),
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
@@ -29,6 +32,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule,
+    ToastrModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,

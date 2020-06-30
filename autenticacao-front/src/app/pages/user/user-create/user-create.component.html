@@ -1,5 +1,5 @@
 <div class="create">
-    <div class="progress-bar" *ngIf="false">
+    <div class="progress-bar" *ngIf="loading">
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </div>
     <div class="about">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <mat-checkbox>Aceito os termos de uso</mat-checkbox>
-                <button mdbBtn type="button" block="true" color="indigo" [disabled]="!form.valid" (click)="createUser()" mdbWavesEffect>CRIAR CONTA</button>
+                <button mdbBtn type="button" block="true" color="indigo" [disabled]="!form.valid" (click)="createUser(form.value)" mdbWavesEffect>CRIAR CONTA</button>
             </form> 
         </div>
         <div class="footer">
