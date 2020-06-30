@@ -9,6 +9,7 @@ import { RecoverAccountComponent } from './recover-account/recover-account.compo
 import { ConfirmRecoverComponent } from './recover-account/confirm-recover/confirm-recover.component';
 
 import { UserService } from 'src/app/shared/services/user.service';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserService } from 'src/app/shared/services/user.service';
     UserCreateComponent,
     ConfirmAccountComponent,
     RecoverAccountComponent,
-    ConfirmRecoverComponent
+    ConfirmRecoverComponent,
+    DashboardUserComponent
   ],
   imports: [
     CommonModule,

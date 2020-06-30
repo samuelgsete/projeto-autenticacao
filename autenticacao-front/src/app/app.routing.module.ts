@@ -8,7 +8,11 @@ import { ConfirmRecoverComponent } from './pages/user/recover-account/confirm-re
 import { UserCreateComponent } from './pages/user/user-create/user-create.component';
 import { ConfirmAccountComponent } from './pages/user/user-create/confirm-account/confirm-account.component';
 
+import { DashboardUserComponent } from './pages/user/dashboard-user/dashboard-user.component';
+import { UserGuard } from './shared/auth/user.guard';
+
 import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.component';
+
 
 @NgModule({
     imports: [
@@ -17,6 +21,7 @@ import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.compo
             { path: 'recover/account', component: RecoverAccountComponent },
             { path: 'confirm/recover', component: ConfirmRecoverComponent },
             { path: 'user/create', component: UserCreateComponent },
+            { path: 'user/dashboard', component: DashboardUserComponent, canActivate: [UserGuard] },
             { path: 'confirm/account', component: ConfirmAccountComponent },
             { path: 'admin/login', component: AdminLoginComponent }
         ])

@@ -1,4 +1,4 @@
-.login {
+.dashboard {
     height: 100vh;
     overflow-y: auto;
     display: flex;
@@ -11,17 +11,13 @@
     background-attachment: fixed;
     background-size: cover;
 
-    .progress-bar {
-        position: absolute; width: 100%; bottom: 0;
-    }
-
     .content {
         width: 440px;
         background-color: #ffffff;
         overflow-y: auto;
         padding: 30px 40px 20px;
         animation: fade 0.7s;
- 
+
         .header {
             animation: up 0.7s;
             text-align: center;
@@ -30,52 +26,14 @@
                 font-weight: bold;
                 letter-spacing: 5px;
                 color: #425554;
-                margin-top: 5px;
+                margin-top: 15px;
             }
             P {
                 margin-top: 30px;
                 font-size: 14px;
                 color: #5c6969;
             }
-            span { color: #4c5e5e; }
         }
-
-        .main {
-            margin-top: 20px;
-            form {
-                animation: move 0.7s;
-                animation-delay: 0.15s;
-
-                .input-width { width: 100% }
-
-                ::ng-deep {
-                    .mat-form-field-appearance-outline .mat-form-field-outline {
-                       color: #687e7d;
-                    }
-                    mat-form-field {
-                        input, ::placeholder, .mat-form-field-label {
-                            color: #5e6d6c;
-                        }
-
-                        mat-icon { color: #597271; }
-                    }
-                }
-
-                mat-error { margin-left: -10px }
-
-                p.link {
-                    margin-top: 15px;
-                    color: #506463;
-                    cursor: pointer;
-                    transition: color 1s;
-                }
-
-                p.link:hover {
-                    color: #628685;
-                }
-            }
-        }
-
         .footer {
             animation: down 0.7s;
             p {
@@ -84,7 +42,7 @@
                 margin-top: 20px;
             }
         }
-    }    
+    }
 }
 
 @keyframes fade {
@@ -95,17 +53,6 @@
     to {
         opacity: 1;
         transform: scale(1);
-    }
-}
-
-@keyframes move {
-    from {
-        opacity: 0;
-        transform: translateX(-20%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0%);
     }
 }
 

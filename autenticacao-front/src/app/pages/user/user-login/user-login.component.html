@@ -1,4 +1,7 @@
-<div class="login">  
+<div class="login"> 
+    <div class="progress-bar" *ngIf="loading">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div> 
     <div class="content z-depth-2">
         <div class="header">
             <img src="/assets/img/avatar/avatar-user.png" alt="usuario" width="80px" height="80px">
@@ -20,8 +23,7 @@
                     <mat-icon matSuffix>lock</mat-icon>
                     <mat-error>preencha a senha corretamente</mat-error>
                 </mat-form-field>
-                <button mdbBtn type="button" block="true" color="indigo" [disabled]="!form.valid" mdbWavesEffect>ACESSAR</button> 
-                <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+                <button mdbBtn type="button" block="true" color="indigo" [disabled]="!form.valid" (click)="signIn(form.value)" mdbWavesEffect>ACESSAR</button> 
                 <p class="link" (click)="toRecoverAccount()">Esqueci minha senha</p>  
                 <p class="link" (click)="toNewUser()">Criar nova conta</p>         
             </form>

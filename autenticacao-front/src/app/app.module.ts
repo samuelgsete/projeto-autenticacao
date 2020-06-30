@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { UserModule } from './pages/user/user.module';
 import { AdminModule } from './pages/admin/admin.module';
+import { AuthService } from './shared/services/auth.service';
+import { UserGuard } from './shared/auth/user.guard';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,10 @@ import { AdminModule } from './pages/admin/admin.module';
     AppRoutingModule,
     UserModule,
     AdminModule
+  ],
+  providers: [
+    AuthService,
+    UserGuard
   ],
   bootstrap: [AppComponent]
 })
