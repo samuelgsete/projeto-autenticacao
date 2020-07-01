@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
+import * as jwt_decode from 'jwt-decode';
 
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { User } from 'src/app/shared/models/user.entity';
@@ -35,10 +36,8 @@ export class UserLoginComponent implements OnInit {
   public signIn(user: User) {
     this.loading = true;
     this.service.loginUser(user).subscribe( res => {
-      localStorage.setItem("id_token", res.access_token);
-      localStorage.setItem('name_user', res.name_user);
-      localStorage.setItem('user', 'logged');
-      this.router.navigateByUrl('user/dashboard');
+      this.decodePayloadJWT(res.access_token);
+      this.router.navigateByUrl('/user/dashboard');
       this.toastr.success('Você está autenticado', 'Tudo ok', { progressBar: true, positionClass: 'toast-bottom-center' });
     },
     err => {
@@ -46,6 +45,17 @@ export class UserLoginComponent implements OnInit {
     }).add( () => {
       this.loading = false;
     });
+  }
+
+  public decodePayloadJWT(token: any): any {
+    localStorage.setItem("id_token", token);
+    try {
+      const result = jwt_decode(token);
+      localStorage.setItem('name_user', result.name);
+      localStorage.setItem('user', result.user);
+    }catch (Error) {
+      return null;
+    }
   }
 
   private errorMessage(response: any) {

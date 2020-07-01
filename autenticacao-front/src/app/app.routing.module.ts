@@ -12,6 +12,8 @@ import { DashboardUserComponent } from './pages/user/dashboard-user/dashboard-us
 import { UserGuard } from './shared/auth/user.guard';
 
 import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.component';
+import { DashboardAdminComponent } from './pages/admin/dashboard-admin/dashboard-admin.component';
+import { AdminGuard } from './shared/auth/admin.guard';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.compo
             { path: 'user/create', component: UserCreateComponent },
             { path: 'user/dashboard', component: DashboardUserComponent, canActivate: [UserGuard] },
             { path: 'confirm/account', component: ConfirmAccountComponent },
-            { path: 'admin/login', component: AdminLoginComponent }
+            { path: 'admin/login', component: AdminLoginComponent },
+            { path: 'admin/dashboard', component: DashboardAdminComponent,  canActivate: [AdminGuard] }
         ])
     ],
     exports: [
