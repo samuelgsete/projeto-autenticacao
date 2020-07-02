@@ -33,6 +33,10 @@ export class DashboardAdminComponent implements OnInit {
     this.router.navigateByUrl('admin/dashboard/user/manager');
   }
 
+  public toUserAccess() {
+    this.router.navigateByUrl('admin/dashboard/user/access');
+  }
+
   ngOnInit(): void {
   }
 }

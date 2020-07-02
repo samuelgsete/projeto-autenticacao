@@ -16,7 +16,7 @@ export class UserManagerComponent implements OnInit {
   public loading: boolean = true;
   public rows: User[];
 
-  public constructor(private readonly userService: UserService, private readonly toastr: ToastrService,) {
+  public constructor(private readonly userService: UserService, private readonly toastr: ToastrService) {
     this.nameAdmin = localStorage.getItem('name_admin');
   }
 

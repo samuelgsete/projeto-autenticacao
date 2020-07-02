@@ -1,8 +1,8 @@
 <div class="dashboard">
     <div class="content z-depth-2">
         <div class="header">
-            <h6>Dashboard de administrador</h6>
-            <p><mdb-icon fas icon="quote-left"></mdb-icon> Seja bem vindo(a) {{ nameAdmin }}, essa é a sua área pessoal <mdb-icon fas icon="quote-right"></mdb-icon></p>
+            <h6>DASHBOARD ADMINISTRADOR</h6>
+            <p><mdb-icon fas icon="quote-left"></mdb-icon> Seja bem vindo(a) <mdb-badge class="z-depth-0" style="font-size: 14px; font-weight: normal;" pill="true" info="true">{{ nameAdmin }}</mdb-badge> essa é a sua área pessoal <mdb-icon fas icon="quote-right"></mdb-icon></p>
         </div> 
         <div class="main">
             <div class="row test">
@@ -26,13 +26,13 @@
                         <mdb-card-body>
                             <img src="/assets/img/avatar/note.png" alt="gerir usuários" width="80px" height="80px">
                             <mdb-card-title>
-                                <h2>Gerenciar acesso</h2>
+                                <h2>Checagem de acessos</h2>
                             </mdb-card-title>
                             <mdb-card-text> 
                                 Gerencie o acesso dos usuarios que estão cadastrados no sistema.
                             </mdb-card-text>
                             <hr>
-                            <button type="button" mdbBtn outline="true" color="primary" mdbWavesEffect>GERENCIAR</button>
+                            <button type="button" mdbBtn outline="true" color="primary" (click)="toUserAccess()" mdbWavesEffect>VERIFICAR</button>
                         </mdb-card-body>
                       </mdb-card>
                 </div>
