@@ -38,18 +38,28 @@
             }
         }
         .main {
-            mdb-card {
-                text-align: center;
-                color: #5c6969;
-                padding: 10px;
-                animation: move 0.5s;
-            }
-
-            .test {
+            .grid-align {
                 display: flex;
                 flex-flow: row nowrap;
                 justify-content: center;
                 align-items: center; 
+
+                ngx-datatable {
+                    width: 100%; 
+                    margin-top: 10px;
+                    box-shadow: none;
+
+                    .user-status {
+                        color: #fff;
+                        border-radius: 15px;
+                        padding: 5px;
+                        text-align: center;
+                    } 
+
+                    button:focus {
+                        outline: none;
+                    }
+                }
             }
         }
         .footer {

@@ -12,6 +12,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     ToastrModule.forRoot(),
+    NgxDatatableModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
@@ -33,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     MDBBootstrapModule,
     ToastrModule,
+    NgxDatatableModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,

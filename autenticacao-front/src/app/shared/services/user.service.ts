@@ -11,8 +11,20 @@ export class UserService {
 
     public constructor(private http: HttpClient) { }
 
+    public findAll(): Observable<User[]> {
+        return this.http.get<User[]>(this.urlBase);
+    }
+
+    public findId(id: number): Observable<User[]> {
+        return this.http.get<User[]>(this.urlBase.concat(`/${id}`));
+    }
+
     public create(user: User): Observable<any> {
         return this.http.post(this.urlBase, user);
+    }
+
+    public update(user: User): Observable<any> {
+        return this.http.put(this.urlBase, user);
     }
 
     public finalizeRegistration(code: string): Observable<any> {

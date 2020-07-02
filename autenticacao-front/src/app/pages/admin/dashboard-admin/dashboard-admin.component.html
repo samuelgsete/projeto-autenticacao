@@ -1,11 +1,58 @@
 <div class="dashboard">
     <div class="content z-depth-2">
         <div class="header">
-            <img src="/assets/img/avatar/dashboard-admin.png" alt="usuario" width="80px" height="80px">
             <h6>Dashboard de administrador</h6>
-            <p><mdb-icon fas icon="quote-left"></mdb-icon> Seja bem vindo(a) {{ nameAdmin }}, essa é a sua área pessoal. Aproveite o que temos de melhor <mdb-icon fas icon="quote-right"></mdb-icon></p>
+            <p><mdb-icon fas icon="quote-left"></mdb-icon> Seja bem vindo(a) {{ nameAdmin }}, essa é a sua área pessoal <mdb-icon fas icon="quote-right"></mdb-icon></p>
         </div> 
-        <button type="button" mdbBtn color="light" (click)="signOut()" mdbWavesEffect>FAZER LOGOFF</button>
+        <div class="main">
+            <div class="row test">
+                <div class="col-4">
+                    <mdb-card>
+                        <mdb-card-body>
+                            <img src="/assets/img/avatar/avatar-user.png" alt="gerir usuários" width="80px" height="80px">
+                            <mdb-card-title>
+                                <h2>Gerenciar usuários</h2>
+                            </mdb-card-title>
+                            <mdb-card-text> 
+                                Aqui você pode gerir o usuarios que estão cadastrados no sistema.
+                            </mdb-card-text>
+                            <hr>
+                            <button type="button" mdbBtn outline="true" color="info" (click)="toUserManager()" mdbWavesEffect>GERENCIAR</button>
+                        </mdb-card-body>
+                      </mdb-card>
+                </div>
+                <div class="col-4">
+                    <mdb-card>
+                        <mdb-card-body>
+                            <img src="/assets/img/avatar/note.png" alt="gerir usuários" width="80px" height="80px">
+                            <mdb-card-title>
+                                <h2>Gerenciar acesso</h2>
+                            </mdb-card-title>
+                            <mdb-card-text> 
+                                Gerencie o acesso dos usuarios que estão cadastrados no sistema.
+                            </mdb-card-text>
+                            <hr>
+                            <button type="button" mdbBtn outline="true" color="primary" mdbWavesEffect>GERENCIAR</button>
+                        </mdb-card-body>
+                      </mdb-card>
+                </div>
+                <div class="col-4">
+                    <mdb-card>
+                        <mdb-card-body>
+                            <img src="/assets/img/avatar/computer.png" alt="gerir usuários" width="80px" height="80px">
+                            <mdb-card-title>
+                                <h2>Gerenciar conta</h2>
+                            </mdb-card-title>
+                            <mdb-card-text> 
+                                Aqui você pode se desconectar da plataforma
+                            </mdb-card-text>
+                            <hr>
+                            <button type="button" mdbBtn outline="true" color="default" (click)="signOut()" mdbWavesEffect>FAZER LOGOFF</button>
+                        </mdb-card-body>
+                      </mdb-card>
+                </div>
+            </div>
+        </div>  
         <div class="footer">
             <hr>
             <p>© 2020 Todos os direitos autorais estão reservados</p>

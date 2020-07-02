@@ -8,7 +8,7 @@ export class User {
     public email: string;
     public whatzapp: string;
     public isActive: boolean;
-    public updated: Date = new Date();
+    public updated: Date;
 
     public constructor(values: Object = {}) { Object.assign(this, values) }
 }
