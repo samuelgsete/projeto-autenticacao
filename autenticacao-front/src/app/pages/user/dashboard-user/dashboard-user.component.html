@@ -1,14 +1,65 @@
 <div class="dashboard">
-    <div class="content z-depth-2">
-        <div class="header">
-            <img src="/assets/img/avatar/dashboard.png" alt="usuario" width="80px" height="80px">
-            <h6>Dashboard de usuário</h6>
-            <p><mdb-icon fas icon="quote-left"></mdb-icon> Seja bem vindo(a) {{ nameuser }}, essa é a sua área pessoal. Aproveite o que temos de melhor <mdb-icon fas icon="quote-right"></mdb-icon></p>
-        </div> 
-        <button type="button" mdbBtn color="light" (click)="signOut()" mdbWavesEffect>FAZER LOGOFF</button>
-        <div class="footer">
-            <hr>
-            <p>© 2020 Todos os direitos autorais estão reservados</p>
+    <div class="main">
+        <div class="row grid-align">
+            <div class="col-4">
+                <mdb-card class="z-depth-2"  mdbWavesEffect>
+                    <mdb-card-body>
+                        <img src="/assets/img/avatar/dashboard.png" alt="gerir usuários" width="80px" height="80px">
+                        <mdb-card-title>
+                            <h2>Dashboard usuário</h2>
+                        </mdb-card-title>
+                        <mdb-card-text> 
+                            <p>  
+                                <mdb-icon fas icon="quote-left"></mdb-icon> 
+                                    Seja bem vindo(a) <mdb-badge class="z-depth-0" style="font-size: 14px; font-weight: normal;" pill="true" default="true">{{ nameuser }}</mdb-badge> essa é a sua área pessoal. 
+                                    Aproveite o que temos de melhor 
+                                <mdb-icon fas icon="quote-right"></mdb-icon>
+                            </p>
+                        </mdb-card-text>
+                        <hr>
+                        <button type="button" mdbBtn outline="true" color="primary" mdbWavesEffect>Acessar</button>
+                    </mdb-card-body>
+                </mdb-card>
+            </div>
+            <div class="col-4">
+                <mdb-card class="z-depth-2"  mdbWavesEffect>
+                    <mdb-card-body>
+                        <img src="/assets/img/avatar/avatar-user.png" alt="gerir usuários" width="80px" height="80px">
+                        <mdb-card-title>
+                            <h2>Personaliszar conta</h2>
+                        </mdb-card-title>
+                        <mdb-card-text> 
+                            <p>  
+                                <mdb-icon fas icon="quote-left"></mdb-icon> 
+                                    Nessa opção você pode personalizar seu perfil alterando seus dados da forma como desejar
+                                <mdb-icon fas icon="quote-right"></mdb-icon>
+                            </p>
+                           
+                        </mdb-card-text>
+                        <hr>
+                        <button type="button" mdbBtn outline="true" color="info" (click)="toProfile()" mdbWavesEffect>PERSONALIZAR</button>
+                    </mdb-card-body>
+                </mdb-card>
+            </div>
+            <div class="col-4">
+                <mdb-card class="z-depth-2"  mdbWavesEffect>
+                    <mdb-card-body>
+                        <img src="/assets/img/avatar/computer.png" alt="gerir usuários" width="80px" height="80px">
+                        <mdb-card-title>
+                            <h2>Desconectar</h2>
+                        </mdb-card-title>
+                        <mdb-card-text> 
+                            <p>  
+                                <mdb-icon fas icon="quote-left"></mdb-icon> 
+                                Aqui você pode se desconectar da plataforma. Não se preocupe seus dados de acesso estarão seguros
+                                <mdb-icon fas icon="quote-right"></mdb-icon>
+                            </p>   
+                        </mdb-card-text>
+                        <hr>
+                        <button type="button" mdbBtn outline="true" color="default" (click)="signOut()" mdbWavesEffect>FAZER LOGOFF</button>
+                    </mdb-card-body>
+                </mdb-card>
+            </div>
         </div>
     </div>
 </div>

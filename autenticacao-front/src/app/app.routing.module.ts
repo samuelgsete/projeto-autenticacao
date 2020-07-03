@@ -16,6 +16,7 @@ import { DashboardAdminComponent } from './pages/admin/dashboard-admin/dashboard
 import { AdminGuard } from './shared/auth/admin.guard';
 import { UserManagerComponent } from './pages/admin/dashboard-admin/user-manager/user-manager.component';
 import { UserAccessComponent } from './pages/admin/dashboard-admin/user-access/user-access.component';
+import { UserProfileComponent } from './pages/user/dashboard-user/user-profile/user-profile.component';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { UserAccessComponent } from './pages/admin/dashboard-admin/user-access/u
             { path: 'confirm/recover', component: ConfirmRecoverComponent },
             { path: 'user/create', component: UserCreateComponent },
             { path: 'user/dashboard', component: DashboardUserComponent, canActivate: [UserGuard] },
+            { path: 'user/profile/:id', component: UserProfileComponent, canActivate: [UserGuard] },
             { path: 'confirm/account', component: ConfirmAccountComponent },
             { path: 'admin/login', component: AdminLoginComponent },
             { path: 'admin/dashboard', component: DashboardAdminComponent,  canActivate: [AdminGuard] },

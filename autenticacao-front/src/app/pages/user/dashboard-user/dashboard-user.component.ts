@@ -28,6 +28,10 @@ export class DashboardUserComponent implements OnInit {
     this.router.navigateByUrl('user/login');
   }
 
+  public toProfile() {
+    this.router.navigateByUrl(`user/profile/6`);
+  }
+
   ngOnInit(): void {
   }
 

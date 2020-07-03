@@ -15,8 +15,8 @@ export class UserService {
         return this.http.get<User[]>(this.urlBase);
     }
 
-    public findId(id: number): Observable<User[]> {
-        return this.http.get<User[]>(this.urlBase.concat(`/${id}`));
+    public findById(id: number): Observable<User> {
+        return this.http.get<User>(this.urlBase.concat(`/${id}`));
     }
 
     public create(user: User): Observable<any> {
