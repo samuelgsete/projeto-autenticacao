@@ -11,13 +11,13 @@
                         <mdb-card-text> 
                             <p>
                                 <mdb-icon fas icon="quote-left"></mdb-icon> 
-                                    Olá <mdb-badge class="z-depth-0" style="font-size: 14px; font-weight: normal;" pill="true" info="true">{{ nameAdmin }}</mdb-badge> 
+                                    Olá <mdb-badge class="z-depth-0" style="font-size: 14px; font-weight: normal;" pill="true" default="true">{{ nameAdmin }}</mdb-badge> 
                                     essa é a sua área pessoal. Faça o que desejar e ulize esse menu para se desconectar
                                 <mdb-icon fas icon="quote-right"></mdb-icon>
                             </p>
                         </mdb-card-text>
                         <hr>
-                        <button type="button" mdbBtn outline="true" color="default" (click)="signOut()" mdbWavesEffect>FAZER LOGOFF</button>
+                        <button type="button" mdbBtn outline="true" color="pink" (click)="signOut()" mdbWavesEffect>FAZER LOGOFF</button>
                     </mdb-card-body>
                 </mdb-card>
             </div>

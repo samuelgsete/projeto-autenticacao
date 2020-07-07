@@ -29,7 +29,7 @@ export class DashboardUserComponent implements OnInit {
   }
 
   public toProfile() {
-    this.router.navigateByUrl(`user/profile/6`);
+    this.router.navigateByUrl('user/profile');
   }
 
   ngOnInit(): void {

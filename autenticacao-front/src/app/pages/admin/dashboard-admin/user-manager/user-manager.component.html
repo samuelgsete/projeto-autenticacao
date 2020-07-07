@@ -1,53 +1,101 @@
 <div class="dashboard">
-    <div class="content z-depth-2">
-        <div class="header">
-            <img src="/assets/img/avatar/avatar-user.png" alt="gerir usuários" width="80px" height="80px">
-            <h6>GERENCIAR USUÁRIOS</h6>
-            <p><mdb-icon fas icon="quote-left"></mdb-icon> Seja bem vindo(a) <mdb-badge class="z-depth-0" style="font-size: 14px; font-weight: normal;" pill="true" info="true">{{ nameAdmin }}</mdb-badge> essa é listagem de usuários cadastrados <mdb-icon fas icon="quote-right"></mdb-icon></p>
-        </div> 
-        <div class="main">
-            <div class="row grid-align">
-                <div class="col-12">
-                    <ngx-datatable
-                        [rows]="rows"
-                        class="material"
-                        [loadingIndicator]="loading"
-                        [columnMode]="'force'"
-                        [headerHeight]="50"
-                        [footerHeight]="50"
-                        [rowHeight]="'auto'"
-                        [messages]="{emptyMessage: '<center>Nenhuma usuário cadastrado</center>'}"
-                        [limit]="6"
-                    >
-                        <ngx-datatable-column
-                            [width]="50"
-                            [sortable]="false"
-                            [canAutoResize]="false"
-                            [draggable]="false"
-                            [resizeable]="false">
-        
-                        </ngx-datatable-column>
-                        <ngx-datatable-column name="ID" [width]="50" prop="id"></ngx-datatable-column>
-                        <ngx-datatable-column name="Nome" [width]="100" prop="name"></ngx-datatable-column>
-                        <ngx-datatable-column name="usuario" [width]="100" prop="username"></ngx-datatable-column>
-                        <ngx-datatable-column name="Tipo" [width]="150">
-                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                                <div class="user-status" [ngClass]="{'primary-color': row.isActive == true, 'danger-color': row.isActive == false }" mdbWavesEffect>{{ row.isActive ? 'ATIVO' : 'INATIVO' }}</div>
-                            </ng-template>
-                        </ngx-datatable-column>
-                        <ngx-datatable-column name="Ações" [width]="20">
-                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                                <button *ngIf="row.isActive" (click)="blockUser(row)" mat-icon-button>
-                                    <mat-icon>power_off</mat-icon>
-                                </button>
-                                <button *ngIf="!row.isActive" (click)="desblockUser(row)" mat-icon-button>
-                                    <mat-icon>power</mat-icon>
-                                </button>
-                            </ng-template>          
-                        </ngx-datatable-column>
-                    </ngx-datatable>
-                </div>
-            </div>     
-        </div>  
+    <div class="progress-bar" *ngIf="loading">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div> 
+    <div class="main">
+        <div class="row grid-align">
+            <div class="col-4" *ngFor="let user of rows">
+                <mdb-card class="z-depth-2"  mdbWavesEffect>
+                    <mdb-card-body>
+                        <img src="/assets/img/avatar/avatar-user.png" alt="gerir usuários" width="80px" height="80px">
+                        <mdb-card-title>
+                            <h2>{{ user. name }}</h2>
+                        </mdb-card-title>
+                        <mdb-card-text> 
+                            {{ user.username }}
+                        </mdb-card-text>                    
+                        <div class="user-status" (click)="changeStatus(user)" [ngClass]="{'primary-color': user.isActive == true, 'danger-color': user.isActive == false }" mdbWavesEffect>{{ user.isActive ? 'ATIVO' : 'BLOQUEADO' }}</div>
+                        <hr>
+                        <button type="button" mdbBtn outline="true" color="pink" (click)="viewUser(modalUser, user)" mdbWavesEffect>VER DETALHES</button>
+                    </mdb-card-body>
+                </mdb-card>
+            </div>
+        </div>     
+    </div>  
+</div>
+
+<div mdbModal #modalUser="mdbModal" class="modal fade modal-zindex">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right btn-hide-modal" (click)="modalUser.hide()">
+                    <span>×</span>
+                </button>
+                <h2 class="modal-title w-100">
+                    <img src="/assets/img/avatar/avatar-user.png" alt="gerir usuários" width="80px" height="80px">
+                </h2>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form">
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="input-width" appearance="outline">
+                                <mat-label>Nome</mat-label>
+                                <input formControlName="name" matInput required>
+                                <mat-icon matSuffix>face</mat-icon>
+                                <mat-error>preencha o nome corretamente</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="input-width" appearance="outline">
+                                <mat-label>Sobrenome</mat-label>
+                                <input formControlName="surname" matInput required>
+                                <mat-icon matSuffix>account_circle</mat-icon>
+                                <mat-error>preencha o sobrenome corretamente</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="input-width" appearance="outline">
+                                <mat-label>Whatzapp</mat-label>
+                                <input formControlName="whatzapp" matInput required mask="(00) 00000-0000">
+                                <mat-icon matSuffix>phone</mat-icon>
+                                <mat-error>Preencha essa capo corretamente, ex: (00) 00000-000</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="input-width" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input formControlName="email" matInput required>
+                                <mat-icon matSuffix>email</mat-icon>
+                                <mat-error>preencha o email corretamente</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="input-width" appearance="outline">
+                                <mat-label>Login</mat-label>
+                                <input formControlName="username" matInput required>
+                                <mat-icon matSuffix>security</mat-icon>
+                                <mat-error>preencha o nome corretamente</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="input-width" appearance="outline">
+                                <mat-label>Senha</mat-label>
+                                <input #pass formControlName="password" type="password" matInput required>
+                                <mat-icon #icon style="cursor: pointer;" (mousedown)="showPassword(pass, icon)" (mouseup)="hidePassword(pass, icon)" matSuffix>visibility_off</mat-icon>
+                                <mat-error>preencha o sobrenome corretamente</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form> 
+            </div>
+            <div class="modal-footer"> 
+                <button type="button" mdbBtn color="indigo" class="relative waves-light" (click)="updateUser(modalUser, form.value)" mdbWavesEffect>ATUALIZAR USUÁRIO</button>
+            </div>
+        </div>
     </div>
 </div>

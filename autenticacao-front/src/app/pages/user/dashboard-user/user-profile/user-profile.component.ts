@@ -27,7 +27,7 @@ export class UserProfileComponent implements OnInit {
 
   public load() {
     this.loading = true;
-    const id = parseInt(this.router.url.split('/')[3]);
+    const id = parseInt(localStorage.getItem('user_id'));
     this.service.findById(id).subscribe( res => {
       this.user = res;
       this.form.patchValue({
@@ -74,6 +74,16 @@ export class UserProfileComponent implements OnInit {
     }).add( () => {
       this.loading = false;
     });
+  }
+
+  public showPassword(input: any, icon: any) {
+    input.type = 'text';
+    icon._elementRef.nativeElement.firstChild.data = 'visibility';
+  }
+
+  public hidePassword(input: any, icon: any) {
+    icon._elementRef.nativeElement.firstChild.data = 'visibility_off';
+    input.type = 'password';
   }
 
   private errorMessage(response: any) {

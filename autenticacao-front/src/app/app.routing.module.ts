@@ -26,7 +26,7 @@ import { UserProfileComponent } from './pages/user/dashboard-user/user-profile/u
             { path: 'confirm/recover', component: ConfirmRecoverComponent },
             { path: 'user/create', component: UserCreateComponent },
             { path: 'user/dashboard', component: DashboardUserComponent, canActivate: [UserGuard] },
-            { path: 'user/profile/:id', component: UserProfileComponent, canActivate: [UserGuard] },
+            { path: 'user/profile', component: UserProfileComponent, canActivate: [UserGuard] },
             { path: 'confirm/account', component: ConfirmAccountComponent },
             { path: 'admin/login', component: AdminLoginComponent },
             { path: 'admin/dashboard', component: DashboardAdminComponent,  canActivate: [AdminGuard] },

@@ -55,6 +55,16 @@ export class UserCreateComponent implements OnInit {
     });
   }
 
+  public showPassword(input: any, icon: any) {
+    input.type = 'text';
+    icon._elementRef.nativeElement.firstChild.data = 'visibility';
+  }
+
+  public hidePassword(input: any, icon: any) {
+    icon._elementRef.nativeElement.firstChild.data = 'visibility_off';
+    input.type = 'password';
+  }
+
   private errorMessage(response: any) {
     const error = response.error;
     if(response.status == 0) {

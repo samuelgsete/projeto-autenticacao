@@ -52,6 +52,7 @@ export class UserLoginComponent implements OnInit {
     try {
       const result = jwt_decode(token);
       localStorage.setItem('name_user', result.name);
+      localStorage.setItem('user_id', result.userid);
       localStorage.setItem('user', result.user);
     }catch (Error) {
       return null;

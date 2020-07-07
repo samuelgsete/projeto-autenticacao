@@ -66,8 +66,8 @@
                     <div class="col-6">
                         <mat-form-field class="input-width" appearance="outline">
                             <mat-label>Senha</mat-label>
-                            <input formControlName="password" type="password" matInput required>
-                            <mat-icon matSuffix>https</mat-icon>
+                            <input #pass formControlName="password" type="password" matInput required>
+                            <mat-icon #icon style="cursor: pointer;" (mousedown)="showPassword(pass, icon)" (mouseup)="hidePassword(pass, icon)" matSuffix>visibility_off</mat-icon>
                             <mat-error>preencha o sobrenome corretamente</mat-error>
                         </mat-form-field>
                     </div>
